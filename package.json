@@ -2,10 +2,10 @@
   "name": "window-shade",
   "version": "0.1.0",
   "main": "extension.js",
-  "author": "Ondřej Tuček",
+  "author": "github.com/asqit",
   "license": "MIT",
   "scripts": {
-    "build": "make",
+    "build": "tsc",
     "pack": "make pack",
     "preview": "make install"
   },

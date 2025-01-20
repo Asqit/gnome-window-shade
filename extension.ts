@@ -24,6 +24,7 @@ export default class WindowShade extends Extension {
   private onShortcutActivated() {
     const currentWindow = this.getCurrentWindow();
     if (!currentWindow) {
+      log("error: failed to get current window");
       return;
     }
 
@@ -36,9 +37,11 @@ export default class WindowShade extends Extension {
     }
 
     currentWindow.move_resize_frame(true, x, y, width, newHeight);
+    log(`resized current window to ${newHeight}px of height`);
   }
 
   enable() {
+    log("extension was activated");
     Main.wm.addKeybinding(
       this.SHORTCUT_NAME,
       this.settings,
@@ -49,6 +52,7 @@ export default class WindowShade extends Extension {
   }
 
   disable() {
+    log("extension was disabled");
     Main.wm.removeKeybinding(this.SHORTCUT_NAME);
   }
 }

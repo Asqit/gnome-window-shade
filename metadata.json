@@ -1,10 +1,8 @@
 {
-    "name": "My TypeScript Extension",
-    "description": "An extension made with TypeScript",
-    "uuid": "my-extension@example.com",
-    "url": "https://github.com/example/my-extension",
-    "settings-schema": "org.gnome.shell.extensions.my-extension",
-    "shell-version": [
-        "45"
-    ]
+  "name": "Window-Shade",
+  "description": "A Gnome extension for window-shade rollup feature ",
+  "uuid": "window-shade@asqit.com",
+  "url": "https://github.com/Asqit/gnome-window-shade",
+  "settings-schema": "org.gnome.shell.extensions.window-shade",
+  "shell-version": ["47", "47.3"]
 }
