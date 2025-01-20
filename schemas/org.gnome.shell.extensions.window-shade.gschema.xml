@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.window-shade" path="/org/gnome/shell/extensions/my-extension/">
+    <key name="window-shade" type="s">
+      <default>"<Control><Alt>h"</default>
+      <summary>Shortcut to activate the feature</summary>
+      <description>Set the keyboard shortcut to trigger your feature.</description>
+    </key>
+  </schema>
+</schemalist>
