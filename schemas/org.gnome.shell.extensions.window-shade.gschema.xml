@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <schemalist>
-  <schema id="org.gnome.shell.extensions.window-shade" path="/org/gnome/shell/extensions/window-shade/">
-    <key name="window-shade" type="s">
-      <default><Control><Alt>h</default>
-      <summary>Shortcut to activate window resize</summary>
-      <description>Set the keyboard shortcut to resize the window.</description>
-    </key>
-  </schema>
+    <schema
+        path="/org/gnome/shell/extensions/window-shade/"
+        id="org.gnome.shell.extensions.window-shade"
+    >
+        <key name="window-shade" type="as">
+            <default><![CDATA[['<Control><Alt>h']]]></default>
+            <summary>Shortcut to activate window resize</summary>
+            <description
+            >Set the keyboard shortcut to resize the window.</description>
+        </key>
+    </schema>
 </schemalist>

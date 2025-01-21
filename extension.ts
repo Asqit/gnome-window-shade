@@ -5,7 +5,7 @@ import Shell from "gi://Shell";
 import * as Main from "resource:///org/gnome/shell/ui/main.js";
 import { Extension } from "resource:///org/gnome/shell/extensions/extension.js";
 
-// Initial Idea - because I am lost in the sea of gnome
+// Initial Idea - because I am lost in the sea of gnomes
 // 1. We listen for key shortcut
 // 2. We toggle between 0-600 for height of the current window
 // 3. improve...
@@ -22,22 +22,22 @@ export default class WindowShade extends Extension {
   }
 
   private onShortcutActivated() {
-    const currentWindow = this.getCurrentWindow();
-    if (!currentWindow) {
-      log("error: failed to get current window");
-      return;
+    try {
+      const currentWindow = this.getCurrentWindow();
+      if (!currentWindow) {
+        log("error: failed to get current window");
+        return;
+      }
+
+      const frameRect = currentWindow.get_frame_rect();
+      const { height, x, y, width } = frameRect;
+      const newHeight = height === 0 ? 600 : 0;
+
+      currentWindow.move_resize_frame(true, x, y, width, newHeight);
+      log(`resized current window to ${newHeight}px of height`);
+    } catch (e) {
+      logError(e as object, "Error in onShortcutActivated");
     }
-
-    const frameRect = currentWindow.get_frame_rect();
-    const { height, x, y, width } = frameRect;
-    let newHeight: number = 0;
-
-    if (height === 0) {
-      newHeight = 600;
-    }
-
-    currentWindow.move_resize_frame(true, x, y, width, newHeight);
-    log(`resized current window to ${newHeight}px of height`);
   }
 
   enable() {
@@ -47,7 +47,7 @@ export default class WindowShade extends Extension {
       this.settings,
       Meta.KeyBindingFlags.NONE,
       Shell.ActionMode.ALL,
-      this.onShortcutActivated,
+      this.onShortcutActivated.bind(this)
     );
   }
 

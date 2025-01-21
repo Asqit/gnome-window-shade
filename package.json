@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc",
     "pack": "make pack",
-    "preview": "make install"
+    "preview": "make install",
+    "test": "dbus-run-session -- gnome-shell --nested --wayland"
   },
   "devDependencies": {
     "eslint": "^9.18.0",
@@ -18,5 +19,6 @@
   "dependencies": {
     "@girs/gjs": "^4.0.0-beta.19",
     "@girs/gnome-shell": "^47.0.0"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }
